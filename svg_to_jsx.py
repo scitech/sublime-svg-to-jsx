@@ -105,31 +105,16 @@ class ConvertCommand(sublime_plugin.TextCommand):
     def replace_all(self, edit, target, replacement):
         """Replace all occurences of a pattern."""
         regions = self.view.find_all(target)
-        difference = len(replacement) - len(target)
 
-        # Make sure regions are accurate when replacing multiple
-        offset_regions = []
-        for index, region in enumerate(regions):
-            offset_regions.append(sublime.Region(region.begin() + (difference * index), region.end() + (difference * index)))
-
-        # Perform the replacement
-        for region in offset_regions:
+        # Perform the replacement in reverse to avoid offsetting issues
+        for region in reversed(regions):
             self.view.replace(edit, region, replacement)
 
 
     def erase_all(self, edit, target):
         """Erase all occurences of a pattern."""
         regions = self.view.find_all(target)
-        offset_length = len(target)
 
-        # Make sure regions are accurate when erasing multiple
-        offset_regions = []
-        for index, region in enumerate(regions):
-            offset_regions.append(
-                sublime.Region(region.begin() - (offset_length * index), region.end() - (offset_length * index))
-            )
-
-        # Perform the deletion
-        for region in offset_regions:
-            print(region)
+        # Perform the deletion in reverse to avoid offsetting issues
+        for region in reversed(regions):
             self.view.erase(edit, region)
