@@ -85,15 +85,15 @@ REPLACEMENTS = [
 ]
 
 DELETIONS = [
-    'xmlns:xlink="http://www.w3.org/1999/xlink"',
-    'xmlns="http://www.w3.org/2000/svg"'
+    'xmlns:xlink=".*?"',
+    'xmlns=".*?"',
+    'line-spacing=".*?"'
 ]
 
 class ConvertCommand(sublime_plugin.TextCommand):
     """Convert SVG in the open buffer to valid JSX."""
     def run(self, edit):
         regions = []
-
         for target in DELETIONS:
             self.erase_all(edit, target)
 
