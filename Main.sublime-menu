@@ -1,0 +1,11 @@
+[
+  {
+    "id": "tools",
+    "children":
+    [{
+        "id": "svgtojsx",
+        "caption": "Convert SVG to JSX",
+        "command": "convert"
+    }]
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {
+        "id": "svgtojsx",
+        "caption": "Convert SVG to valid JSX",
+        "command": "convert"
+    }
+]
