@@ -90,7 +90,7 @@ DELETIONS = [
     'line-spacing=".*?"'
 ]
 
-class ConvertCommand(sublime_plugin.TextCommand):
+class ConvertSvgToJsxCommand(sublime_plugin.TextCommand):
     """Convert SVG in the open buffer to valid JSX."""
     def run(self, edit):
         regions = []

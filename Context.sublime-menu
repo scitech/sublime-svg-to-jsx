@@ -2,6 +2,6 @@
   {
         "id": "svgtojsx",
         "caption": "Convert SVG to valid JSX",
-        "command": "convert"
+        "command": "convert_svg_to_jsx"
     }
 ]
