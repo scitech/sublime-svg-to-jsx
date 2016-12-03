@@ -93,7 +93,6 @@ DELETIONS = [
 class ConvertSvgToJsxCommand(sublime_plugin.TextCommand):
     """Convert SVG in the open buffer to valid JSX."""
     def run(self, edit):
-        regions = []
         for target in DELETIONS:
             self.erase_all(edit, target)
 
